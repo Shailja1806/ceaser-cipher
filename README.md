@@ -1,2 +1,2 @@
 # ceaser-cipher
-used for encryption.
+this program is used for encryption and decryption.
