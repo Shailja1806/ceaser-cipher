@@ -1,12 +1,19 @@
 # Caesar Cipher
+The encryption can be represented using modular arithmetic by first transforming the letters into numbers, according to the scheme, A = 0, B = 1,…, Z = 25. Encryption of a letter by a shift n can be described mathematically as.
+Algorithm for Caesar Cipher:
+Input:
 
-This program has two forms of encryption:
+A String of lower case letters, called Text.
+An Integer between 0-25 denoting the required shift.
+Procedure:
 
-1. Using one key, where it shifts the alphabet by that key number.
-2. Using two keys, where key1 is used to encrypt every other character with the Caesar Cipher algorithm, starting with the first character, and key2 is used to encrypt every other character, starting with the second character.
+1.Traverse the given text one character at a time .
+2.For each character, transform the given character as per the rule, depending on whether we’re encrypting or decrypting the text.
+3.Return the new string generated.
+4.Program that receives a Text (string) and Shift value( integer) and returns the encrypted text.
 
-There are two ways of decrypting Caesar Cipher:
+How to decrypt?
+We can either write another function decrypt similar to encrypt, that’ll apply the given shift in the opposite direction to decrypt the original text. However we can use the cyclic property of the cipher under modulo , hence we can simply observe
 
-1. Where you have an array of common words and you change the key incrementally, shifting the alphabet until it matches some of these words (also known as brute force).
-
-2. Using the most common letter based on the spoken language. It's known that English texts have a lot of 'e's, so, you search in the encrypted text the most common letter and then you subtract its distance from letter 'e' to find out the shifting distance. One caveat about this method: it doesn't work with very small texts or phrase. It better use "brute force" for those cases. 
+Cipher(n) = De-cipher(26-n)
+Hence, we can use the same function to decrypt, instead we’ll modify the shift value such that shift = 26-shift 
